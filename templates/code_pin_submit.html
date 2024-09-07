@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Opéra BU</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='code_pin_submit.css') }}">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <header>
+        <div class="login-container">
+            
+            <form action="{{ url_for('submit_code') }}" method="post">
+                <h2>Code de verification </h2>
+                <a href="{{ url_for('acceuil') }}">Revenir à l'acceuil</a>
+                <input type="text" name="code" placeholder="Code à 6 chiffres" required>
+                <button type="submit">Vérifier</button>
+            </form>
+        </div>
+    </header>
+    
+
+    
+</body>
+</html>
+

@@ -1,0 +1,204 @@
+body {
+    background-image: url('large-collection-old-books-wooden-shelves-generated-by-ai.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: cover; 
+    min-height: 100vh; 
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 px;
+    border: 2px solid #c2c471;
+    border-radius: 20px;
+    background-color: #0d0e03;
+    box-shadow: 0px 8px 8px 0px #c2c471 ;
+    width: 100%;
+    height: 100px;
+    opacity: 0.9;
+}
+
+nav {
+    margin-right: 100px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px;
+}
+
+
+form label {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    color: #c2c471;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+
+form input[type="radio"]:checked + label {
+    background-color: #c2c471;
+    opacity: 0.9;
+    color: #000000;
+}
+
+
+
+
+
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #c2c471;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #c2c471;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background: none;
+    color: #c2c471;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #c2c471;
+    border-radius: 20px;
+    color: #000000;
+}
+
+
+a {
+  
+    color: #c2c471;
+    padding: 12px 16px;
+    text-decoration: none;
+    border: 2px solid transparent; 
+}
+
+a:hover, a:focus {
+    background-color:#c2c471;
+    color: #000000; 
+   
+    border-radius: 20px;
+}
+
+
+.logo {
+    margin-left: 50px;
+    color: #c2c471;
+    flex-grow: 1;
+}
+
+.dropdown {
+    position: relative;
+}
+    
+
+#dropdownMenuButton {
+    color: #c2c471;
+    background-color: #000000;
+    padding: 12px 16px;
+    background: none; 
+    border: none;
+}
+
+#dropdownMenuButton:hover { 
+    background-color: #c2c471;
+    border-radius: 20px;
+    color: black;
+}
+
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    color: #c2c471;
+    border: 2px solid #c2c471;
+    background-color: #000000;
+    box-shadow: 0px 8px 16px 0px #c2c471 ;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #c2c471;
+}
+
+.dropdown-menu a:hover {
+    background-color: #c2c471;
+    border-radius: 20px;
+    color: black;
+}
+
+
+
+.login-container a:hover {
+    border-radius: 20px;
+    margin-bottom: px;
+    padding: 12px 16px;
+    background-color: #c2c471;
+    color: black;
+}
+
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flashes li {
+    color: #fff;
+    background-color: #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.flashes .error {
+    background-color: #ff0000;
+}
+
+.flashes .success {
+    background-color: #00ff00;
+}
+
+.flashes .info {
+    background-color: #0000ff;
+}
+
+.flashes .warning {
+    background-color: #ffcc00;
+}

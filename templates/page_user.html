@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Opéra BU</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='page_user.css') }}">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    <header>
+        <div class="container" >
+            <h1 class="logo">Bibliothèque Opéra</h1>
+            <nav>
+                <form action="{{ url_for('recherche_livre') }}" method="get">
+                    <input type="radio" id="titre" name="filter" value="titre" checked>
+                    <label for="titre">Titre</label>
+                    
+                    <input type="radio" id="auteur" name="filter" value="auteur">
+                    <label for="auteur">Auteur</label>
+                    
+                    <input type="radio" id="type" name="filter" value="type">
+                    <label for="type">Type</label>
+                    
+                    <input type="hidden" name="page_type" value="user">
+                    <input type="text" name="q"  placeholder="Rechercher..." required>
+                    <button type="submit">Chercher</button>
+                </form>
+                
+                   
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Compte
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                      <a class="dropdown-item" href="{{ url_for('mes_locations') }}">Mes Locations</a>
+                      <a class="dropdown-item" href="{{ url_for('connexion') }}">Déconnexion</a>
+                      <a class="dropdown-item" href="{{ url_for('contact') }}">Contacter la BU</a>
+                    </div>
+                  </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="books-container">
+        {% for publication, exemplaire_count in books %}
+        <div class="book">
+            <h2>{{ publication.titre }}</h2>
+            <p>Type: {{ publication.type }}</p>
+            <p>Auteur: {{ publication.auteur.nom }}</p>
+            <p>Nombre d'exemplaires dispo: {{ exemplaire_count }}</p>
+            <p>Rendez vous à l'acceuil pour empreinter ce livre</p>
+            
+        </div>
+        {% endfor %}
+    </div>
+
+    
+</body>
+</html>
+

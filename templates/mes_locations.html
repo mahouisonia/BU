@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Locations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='afficher_location.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <h1>Liste des Locations</h1>
+    {% if mes_locations %}
+        <div class="location-container">
+            {% for location in mes_locations %}
+                <div class="location">
+                    <p>Nom: {{ location.utilisateur.nom }}</p>
+                    <p>Prénom: {{ location.utilisateur.prenom }}</p>
+                    <p>Email: {{ location.utilisateur.email }}</p>
+                    <p>Emprunté le: {{ location.date_emprunt }}</p>
+                    <p>Retourné le: {{ location.date_retour }}</p>
+                    <p>Titre de la publication: {{ location.exemplaire.publication.titre }}</p>
+                    <p>État de l'exemplaire: {{ location.exemplaire.etat }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Aucune location trouvée.</p>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+body {
+    background-image: url('large-collection-old-books-wooden-shelves-generated-by-ai.jpg');
+    background-position: center; /* Centre l'image de fond */
+    background-repeat: no-repeat; /* Empêche l'image de se répéter */
+    background-attachment: fixed; /* Rend l'image de fond fixe lors du défilement */
+    background-size: cover; /* Assure que l'image couvre toute la zone disponible */
+    min-height: 100vh; /* S'assure que le body prend au moins la hauteur de l'écran */
+}
+
+
+.location-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+
+}
+
+.location {
+    border: 1px solid #c2c471;
+    color: #c2c471;
+    margin: 10px;
+    padding: 20px;
+    width: 300px; /* ou une largeur qui correspond à vos besoins */
+    box-shadow: 0px 8px 16px 0px #c2c471;
+    border-radius: 20px;
+    background: black;
+    opacity: 0,9;
+}
+
+
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flashes li {
+    color: #fff;
+    background-color: #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.flashes .error {
+    background-color: #ff0000;
+}
+
+.flashes .success {
+    background-color: #00ff00;
+}
+
+.flashes .info {
+    background-color: #0000ff;
+}
+
+.flashes .warning {
+    background-color: #ffcc00;
+}

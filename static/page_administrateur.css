@@ -1,0 +1,248 @@
+body {
+    background-image: url('large-collection-old-books-wooden-shelves-generated-by-ai.jpg');
+    background-position: center; /* Centre l'image de fond */
+    background-repeat: no-repeat; /* Empêche l'image de se répéter */
+    background-attachment: fixed; /* Rend l'image de fond fixe lors du défilement */
+    background-size: cover; /* Assure que l'image couvre toute la zone disponible */
+    min-height: 100vh; /* S'assure que le body prend au moins la hauteur de l'écran */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 px;
+    border: 2px solid #c2c471;
+    border-radius: 20px;
+    background-color: #0d0e03;
+    box-shadow: 0px 8px 8px 0px #c2c471 ;
+    width: 100%;
+    height: 100px;
+    opacity: 0.9;
+}
+
+nav {
+    margin-right: 100px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px;
+}
+
+/* Styles pour les labels des boutons radio */
+form label {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    color: #c2c471;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+
+form input[type="radio"]:checked + label {
+    background-color: #c2c471;
+    opacity: 0.9;
+    color: #000000;
+}
+
+
+
+
+
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #c2c471;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #c2c471;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background: none;
+    color: #c2c471;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #c2c471;
+    border-radius: 20px;
+    color: #000000;
+}
+
+
+a {
+  
+    color: #c2c471;
+    padding: 12px 16px;
+    text-decoration: none;
+    border: 2px solid transparent; 
+}
+
+a:hover, a:focus {
+    background-color:#c2c471;
+    color: #000000; 
+   
+    border-radius: 20px;
+}
+
+
+.logo {
+    margin-left: 50px;
+    color: #c2c471;
+    flex-grow: 1;
+}
+
+.dropdown {
+    position: relative;
+}
+    
+
+#dropdownMenuButton {
+    color: #c2c471;
+    background-color: #000000;
+    padding: 12px 16px;
+    background: none; /* Possible conflit ici, car 'background-color' et 'background' sont tous deux utilisés */
+    border: none;
+}
+
+#dropdownMenuButton:hover { /* Pas d'espace entre le sélecteur et ':hover' */
+    background-color: #c2c471;
+    border-radius: 20px;
+    color: black;
+}
+
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    color: #c2c471;
+    border: 2px solid #c2c471;
+    background-color: #000000;
+    box-shadow: 0px 8px 16px 0px #c2c471 ;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #c2c471;
+}
+
+.dropdown-menu a:hover {
+    background-color: #c2c471;
+    border-radius: 20px;
+    color: black;
+}
+
+
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+
+}
+
+.book {
+    border: 1px solid #c2c471;
+    color: #c2c471;
+    margin: 10px;
+    padding: 20px;
+    width: 300px; /* ou une largeur qui correspond à vos besoins */
+    box-shadow: 0px 8px 16px 0px #c2c471;
+    border-radius: 20px;
+    background: black;
+    opacity: 0,9;
+}
+.book button{
+    margin-top: 20px;
+
+    color: #c2c471;
+    padding: 12px 16px;
+    background: none;
+    text-decoration: underline;
+}
+.book button:hover{
+    background-color:#c2c471;
+    color: #000000; 
+   
+    border-radius: 20px;
+}
+
+.open-input, .btn-success {
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+    color: #c2c471;
+    
+}
+
+.user-input {
+    margin-top: 10px;
+}
+
+.user-input input {
+    padding: 5px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+
+
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flashes li {
+    color: #fff;
+    background-color: #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.flashes .error {
+    background-color: #ff0000;
+}
+
+.flashes .success {
+    background-color: #00ff00;
+}
+
+.flashes .info {
+    background-color: #0000ff;
+}
+
+.flashes .warning {
+    background-color: #ffcc00;
+}

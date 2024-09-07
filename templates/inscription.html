@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Opéra BU</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='inscription.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <header>
+        <div class="login-container">
+            <h1>Inscrivez-vous à Opéra BU</h1>
+            <form action="{{ url_for('inscription') }}" method="post">
+                <h2>Inscription</h2>
+                <a href="{{ url_for('acceuil') }}">Revenir à l'accueil</a>
+                <input type="text" name="nom" placeholder="Nom" required>
+                <input type="text" name="prenom" placeholder="Prénom" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="mot_de_passe" placeholder="Mot de passe" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial">
+                <input type="password" id="confirm_password" name="confirmer_mot_de_passe" placeholder="Confirmer le mot de passe" required>
+                <input type="date" name="date_naissance" placeholder="Date de naissance" required>
+                <input type="tel" id="telephone" name="telephone" placeholder="Ex: 01-23-45-67-89" required 
+                title="Entrez un numéro de téléphone valide (ex: 0123456789 ou 01-23-45-67-89)">
+
+                <input type="text" name="ville" placeholder="Ville" required>
+                <input type="text" name="code_postal" placeholder="Code postal">
+                <button type="submit">S'inscrire</button>
+                
+                <a href="{{ url_for('connexion') }}">Vous avez déjà un compte ? Connectez-vous ici</a>
+            </form>
+            
+        </div>
+    </header>
+    <script>
+        "use strict";
+        const password = document.querySelector("#password");
+        const telephone = document.querySelector("#telephone");
+        const confirm_password = document.querySelector("#confirm_password");
+        const expPattern = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+  
+        function validatePassword(){
+          if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Les mots de passe ne correspondent pas");
+          } else {
+            confirm_password.setCustomValidity('');
+          }
+        }
+
+        function validateTel(){
+            if(!expPattern.test(telephone.value)){
+                telephone.setCustomValidity("Numéro invalide");
+            } else {
+                telephone.setCustomValidity("");
+            }
+        }
+
+        password.addEventListener('keyup', validatePassword);
+        confirm_password.addEventListener('keyup', validatePassword);
+        telephone.addEventListener('keyup', validateTel);
+        
+      </script>
+</body>
+</html>

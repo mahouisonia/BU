@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Opéra BU</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='page_administrateur.css') }}">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    <header>
+        <div class="container" >
+            <h1 class="logo">Bibliothèque Opéra</h1>
+            <nav>
+                
+                <form action="{{ url_for('recherche_livre') }}" method="get">
+                    <input type="radio" id="titre" name="filter" value="titre" checked>
+                    <label for="titre">Titre</label>
+                    
+                    <input type="radio" id="auteur" name="filter" value="auteur">
+                    <label for="auteur">Auteur</label>
+                    
+                    <input type="radio" id="type" name="filter" value="type">
+                    <label for="type">Type</label>
+                    <input type="hidden" name="page_type" value="admin">
+                    <input type="text" name="q" placeholder="Rechercher..." required>
+                    <button type="submit">Chercher</button>
+                </form>
+                
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Gestion
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                      
+                      <a class="dropdown-item" href="{{ url_for('toutes_locations') }}">Voir toutes les locations</a>
+                      <a class="dropdown-item" href="{{ url_for('Afficher_locations') }}">Envoyer un message de rappel</a>
+                      <a class="dropdown-item" href="{{ url_for('add_publication') }}">Ajouter une publication</a>
+                      <a class="dropdown-item" href="{{ url_for('retourner_exemplaire') }}">Fin d'une location</a>
+                     
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Compte
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                      <a class="dropdown-item" href="{{ url_for('connexion_administrateur') }}">Déconnexion</a>
+                      <a class="dropdown-item" href="{{ url_for('ajout_administrateur') }}">Ajouter un administrateur</a>
+                    </div>
+                </div>
+            
+            </nav>
+
+        </div>
+    </header>
+
+    <div class="books-container">
+        {% for publication, exemplaire_count in books %}
+        <div class="book">
+            <h2>{{ publication.titre }}</h2>
+            <p>Type: {{ publication.type }}</p>
+            <p>Auteur: {{ publication.auteur.nom }}</p>
+            <p>Nombre d'exemplaires dispo: {{ exemplaire_count }}</p>
+            <a class="delete" href="{{ url_for('delete_publication', publication_id=publication.id) }}">Supprimer la publication</a>
+            <button class="btn btn-primary open-input" data-target="#userInput{{ loop.index }}">Faire une location</button>
+            <div id="userInput{{ loop.index }}" style="display: none;">
+                <form action="{{ url_for('louer_exemplaire') }}" method="post">
+                    <input type="hidden" name="publication_id" value="{{ publication.id }}">
+                    <input type="text" name="user_id" class="form-control" placeholder="Entrez l'ID de l'utilisateur" required>
+                    <button type="submit" class="btn btn-success">Confirmer</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var buttons = document.querySelectorAll('.btn.btn-primary.open-input');
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var targetId = this.getAttribute('data-target');
+                    var inputDiv = document.querySelector(targetId);
+                    inputDiv.style.display = inputDiv.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+        
+        
+    
+
+</body>
+</html>
+
+    
+
+    
+
+</html>
+

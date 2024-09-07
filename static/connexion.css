@@ -1,0 +1,103 @@
+body {
+    background-image: url('large-collection-old-books-wooden-shelves-generated-by-ai.jpg');
+    background-position: center; /* Centre l'image de fond */
+    background-repeat: no-repeat; /* Empêche l'image de se répéter */
+    background-attachment: fixed; /* Rend l'image de fond fixe lors du défilement */
+    background-size: cover; /* Assure que l'image couvre toute la zone disponible */
+    min-height: 100vh; /* S'assure que le body prend au moins la hauteur de l'écran */
+}
+
+
+.login-container {
+    width: 500px; /* Définit une largeur spécifique pour le conteneur */
+    margin: 150px auto; /* Centrer le conteneur sur la page avec une marge supérieure */
+    padding: 20px; /* Ajoute de l'espace à l'intérieur du conteneur autour des éléments */
+    background-color: black; /* Couleur de fond claire pour le conteneur */
+    border: 2px solid #c2c471;
+    border-radius: 20px; /* Coins arrondis pour un look moderne */
+    box-shadow: 0px 8px 8px 0px #c2c471;
+    opacity: 0.9;
+}
+
+.login-container h1, .login-container h2 {
+    text-align: center; /* Centre les titres dans le conteneur */
+    color: #c2c471; /* Couleur foncée pour le texte pour un contraste avec le fond */
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column; 
+}
+
+.login-container input {
+    margin-bottom: 10px; /* Espacement entre les champs de saisie */
+    padding: 8px; /* Padding interne pour le confort de frappe */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Coins légèrement arrondis pour les champs de saisie */
+}
+
+.login-container button {
+    padding: 10px;
+    background: none;
+    color: #c2c471;
+    border: none;
+    cursor: pointer; 
+    margin-bottom: 20px;
+    
+}
+
+.login-container button:hover {
+    background-color: #c2c471; 
+    border-radius: 15px;
+    color: #000000;
+}
+
+.login-container a {
+    display: block; /* Les liens s'affichent sur toute la largeur du conteneur */
+    text-align: center; /* Centrage du texte des liens */
+    margin: 5px 0; /* Espacement vertical pour les liens */
+    color: #c2c471; /* Bleu pour indiquer que ce sont des liens cliquables */
+    text-decoration: none; /* Supprime le soulignement par défaut */
+    margin-bottom: 20px;
+    
+}
+
+.login-container a:hover {
+    border-radius: 20px;
+    margin-bottom: px;
+    padding: 12px 16px;
+    background-color: #c2c471;
+    color: black;
+}
+
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flashes li {
+    color: #fff;
+    background-color: #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.flashes .error {
+    background-color: #ff0000;
+}
+
+.flashes .success {
+    background-color: #00ff00;
+}
+
+.flashes .info {
+    background-color: #0000ff;
+}
+
+.flashes .warning {
+    background-color: #ffcc00;
+}
+

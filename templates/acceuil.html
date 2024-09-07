@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Opéra BU</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='acceuil.css') }}">
+
+
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    <header>
+        <div class="container" >
+            <h1 class="logo">Bibliothèque Opéra</h1>
+            <nav>
+                <a href="{{ url_for('acceuil') }}">À propos</a>
+                <form action="{{ url_for('recherche_livre') }}" method="get">
+                    <input type="radio" id="titre" name="titre" value="titre" checked>
+                    <label for="titre">Titre</label>
+                    
+                    <input type="radio" id="auteur" name="auteur" value="auteur">
+                    <label for="auteur">Auteur</label>
+                    
+                    <input type="radio" id="type" name="type" value="type">
+                    <label for="type">Type</label>
+                    
+                    <input type="text" name="q" placeholder="Rechercher..." required>
+                    <button type="submit">Chercher</button>
+                </form>
+                
+                   
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Compte
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="{{ url_for('inscription') }}">Inscription</a>
+                      <a class="dropdown-item" href="{{ url_for('connexion') }}">Connexion</a>
+                      <a class="dropdown-item" href="{{ url_for('connexion_administrateur') }}">Administrateur</a>
+                    </div>
+                  </div>
+            </nav>
+        </div>
+    </header>
+
+
+   
+    
+
+    
+</body>
+</html>
+

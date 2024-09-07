@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>AcademiaAid</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='connexion.css') }}">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    <header>
+       
+
+        <div class="login-container">
+            <h1>Heureux de vous revoir !</h1>
+            <form action="{{ url_for('connexion') }}" method="post">
+                <h2>Connexion</h2>
+                <a href="{{ url_for('acceuil') }}">Revenir à l'acceuil</a>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+                <button type="submit">Connexion</button>
+                
+                <a href="{{ url_for('inscription') }}">Pas encore de compte ?</a>
+                
+                <a href="{{ url_for('verification_email') }}">Mot de passe oublié ?</a>
+                
+            </form>
+        </div>
+    </header>
+    
+
+    
+</body>
+</html>
+
